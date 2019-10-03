@@ -2,24 +2,35 @@
 <html>
 <head>
 	<title>Hellhound Game</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+ <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/f197795d67.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 </head>
-<body>
+<body> 
 
-<div id="myCanvas">
-				<p><input type="text" value ="enter name" id="name"> </input></p>
-				<p><button id="buttonStart">submit</button></p>
-				<p id="enterName"> unnamed </p>
-				<p id="age"> age: 0 </p>
-				<p id="hunger"> hunger: 0 </p>
-				<p id="attention"> attention: 0 </p>
-				<p id="sleep"> sleep: 0 </p>		
-				<i id="feedButton" class="fas fa-drumstick-bite"> </i>
-				<i id="playButton" class="fas fa-gamepad"> </i>
-				<i id="sleepButton" class="fas fa-bed"> </i>	
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class="moveHound" src="images/Pup.gif">
+<div id="wrapper">
+	<h1> Hellhound Tomagotchi</h1>
+	<!-- <p><input type="text" value ="enter name" id="name"> </input></p>
+		<p><button id="buttonStart">submit</button></p>	 -->
+	<div id="myCanvas">	
+		<img class="movePup flipPup" id="pup" src="images/pupflipped.gif">
+	</div>
+	<div id="buttons">
+		<p>
+			<i id="enterName"> unnamed </i>
+		</p>
+		<p>
+			<i id="age"> age: 0 </i>
+			<i id="hunger"> hunger: 0 </i>
+			<i id="attention"> attention: 0 </i>
+			<i id="sleep"> sleep: 0 </i>
+		</p>
+
+		<i id="feedButton" class="fas fa-drumstick-bite fa-2x"> </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<i id="playButton" class="fas fa-gamepad fa-2x"> </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<i id="sleepButton" class="fas fa-bed fa-2x"> </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<i id="spawnButton" class="fas fa-bible fa-2x"> </i>	
+	</div> 
 </div>
 
 

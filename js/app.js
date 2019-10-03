@@ -1,6 +1,3 @@
-
-
-
 class Hound {
     constructor(name) {
         this.name = name;
@@ -18,8 +15,9 @@ class Hound {
             } else if (this.hunger === 10 && this.isAlive === true && this.age < 10) {
                 alert(this.name + " has died from starvation!");
                 this.isAlive = false;
+                $( ".movePup" ).attr("id","visability");
             }
-        }, 1000);
+        }, 2000);
     }
     
     getSleepy() {
@@ -29,8 +27,9 @@ class Hound {
             } else if (this.sleep === 10 && this.isAlive === true && this.age < 10) {
                 alert(this.name + " has died from lack of sleep!");
                 this.isAlive = false;
+                $( ".movePup" ).attr("id","visability");
             }
-        }, 1000);
+        }, 2000);
     }
     
     getBored () {
@@ -41,13 +40,17 @@ class Hound {
             } else if (this.boredom === 10 && this.isAlive === true && this.age < 10) {
                 alert(this.name + " has died from lack of attention!");
                 this.isAlive = false;
+                $( ".movePup" ).attr("id","visability");
 
             }
-        }, 1000);
+        }, 2000);
     }
 
     evolve() {
-    	$(".moveHound").attr("src","images/hell-hound-walk.gif");
+    	$(".movePup").attr("id","visability");
+
+      let img = $('<img class="moveHound flipHound" src="images/houndwalkingfirst.gif">');
+      img.appendTo('#myCanvas');
     }
     
     ageUp () {
@@ -55,15 +58,22 @@ class Hound {
             if (this.isAlive === true && this.age < 10) {
                 this.age++; 
            	} else if (this.isAlive === true && this.age >= 10 && this.isAdult === false) {
-           		alert(this.name + " is now an adult! You not longer have to care for them");
+           		alert(this.name +" is now an adult! You no longer have to care for them\n" 
+                    + this.name + " shall now be moved out of the nursery.");
            		this.isAdult = true;
            		this.evolve()
+
            	}
                 }, 3000);
            	
            	}
             
     }
+
+let name = prompt("Please enter a name for your spawn", "unnamed");
+const primaryHound = new Hound(name);
+$("#enterName").text(name)
+
 
 const updateStats = () => {
 	setInterval(() => {
@@ -74,18 +84,6 @@ const updateStats = () => {
     }, 500);
             
 }
-
-
-const primaryHound = new Hound("Vargling");
-
-
-
-
-$('#buttonStart').on('click',function() {
-const name = $('#name').val();
-console.log(name);
-$("#enterName").text(name);
-});
 
 $('#feedButton').on('click',function() {
 if (primaryHound.isAlive === true && primaryHound.hunger > 0) {
@@ -102,7 +100,21 @@ if (primaryHound.isAlive === true && primaryHound.sleep > 0) {
   primaryHound.sleep--;}
   updateStats();
 });
+$('#spawnButton').on('click',function() {
+if (primaryHound.age === 10 || primaryHound.isAlive === false) {
+  $(".movePup").attr("id","pup");
+  let name = prompt("Please enter a name for your spawn", "unnamed");
+  $("#enterName").text(name);
+  primaryHound.age = 0;
+  primaryHound.hunger = 0;
+  primaryHound.sleep = 0;
+  primaryHound.boredom = 0;
+  primaryHound.isAdult = false;
+  primaryHound.isAlive = true;
+}
 
+  updateStats();
+});
 
 const gameStart = () => {
 	console.log("Starting Game");
