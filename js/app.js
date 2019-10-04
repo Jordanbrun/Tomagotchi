@@ -105,6 +105,7 @@ if (primaryHound.age === 10 || primaryHound.isAlive === false) {
   $(".movePup").attr("id","pup");
   let name = prompt("Please enter a name for your spawn", "unnamed");
   $("#enterName").text(name);
+  primaryHound.name = name;
   primaryHound.age = 0;
   primaryHound.hunger = 0;
   primaryHound.sleep = 0;
